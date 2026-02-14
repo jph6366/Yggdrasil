@@ -3,11 +3,11 @@
 using BinaryBuilder, Pkg
 
 name = "TVMFFI"
-version = v"0.1.3"
+version = v"0.1.5"
 
 # Collection of sources required to complete build
 sources = [
-    GitSource("https://github.com/apache/tvm-ffi.git", "7cd2e500f5f17079ac6bdf7bf4f79681c885714a")
+    GitSource("https://github.com/apache/tvm-ffi.git", "25c25aec22acadcf1aeb839297fe156bc0cf7183")
 ]
 
 # Bash recipe for building across all platforms
@@ -21,6 +21,7 @@ cmake \
     -DTVM_FFI_ATTACH_DEBUG_SYMBOLS=ON \
     -DTVM_FFI_BUILD_TESTS=OFF \
     -DTVM_FFI_BUILD_PYTHON_MODULE=OFF \
+    -DTVM_FFI_BACKTRACE_ON_SEGFAULT=OFF \
     -B ../../build
 cmake --build ../../build
 cmake --install ../../build
